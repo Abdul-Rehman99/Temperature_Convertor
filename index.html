@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Temperature Convertor</title>
+</head>
+<style>
+    body{
+        background-color: #f0faff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        flex-direction: column;
+        color: #4a98f7;
+    }
+    .box{
+        background-color: #4a98f7;
+        width: 300px;
+        height: 140px;
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        color: #fff;
+        padding: 0 25px;
+        margin: 10px;
+        box-shadow:0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    small,input{
+        display: block;
+    }
+    input{
+        width: 90px;
+        height: 50px;
+        font-size: 1.8em;
+        border: none;
+        border-radius: 5px ;
+        color: #009dff;
+        outline:none;
+        text-align: center;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+    i{
+        font-size: 22px;
+        margin-top: 20px;
+    }
+    small{
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+</style>
+<body>
+    <h1>Temperature Convertor</h1>
+    <div class="box">
+        <span class="celcius-container">
+            <small>Celcius</small>
+            <input type="number" id="celcius" value="0">
+        </span>
+        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+        <span class="fahrenheit-container">
+            <small>Fahrenheit</small>
+            <input type="number" id="fahrenheit" value="32">
+        </span>
+    </div>
+    <!--
+    <script src="index.js"></script>
+    -->
+    <script>
+        const CelEle = document.getElementById('celcius');
+        const FarEle = document.getElementById('fahrenheit');
+        CelEle.addEventListener('input', function() {
+            let C = this.value;
+            let F = (C * 9/5) + 32;
+            FarEle.value = F;
+        })
+        FarEle.addEventListener('input', function() {
+            let F = this.value;
+            let C = (F - 32) * 9/5;
+            CelEle.value = C;
+        })
+    </script>
+</body>
+</html>
